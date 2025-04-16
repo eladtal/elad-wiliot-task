@@ -7,6 +7,9 @@ webserver:
     existingSecret: airflow-web-user
     usernameSecretKey: username
     passwordSecretKey: password
+  extraEnvFrom:
+  - secretRef:
+      name: airflow-rds-secret
 
 dags:
   persistence:

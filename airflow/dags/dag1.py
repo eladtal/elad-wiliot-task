@@ -5,13 +5,16 @@ import requests
 import psycopg2
 import logging
 import re
+import os
 
 # DB connection settings
-DB_HOST = "wiliot-devops-postgres.cniwsla7fltp.eu-west-1.rds.amazonaws.com"
-DB_NAME = "wiliot"
-DB_USER = "elad"
-DB_PASS = "P$SSW0RD"
+DB_HOST = os.getenv("db_host")
+DB_NAME = os.getenv("db_name")
+DB_USER = os.getenv("db_user")
+DB_PASS = os.getenv("db_pass")
 API_URL = "http://abe1100c7613a4bebae8d962d3fc539c-1534427791.eu-west-1.elb.amazonaws.com/users"
+
+
 
 default_args = {
     'owner': 'elad',
