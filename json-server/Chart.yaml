@@ -1,0 +1,6 @@
+apiVersion: v2
+name: json-server
+description: A Helm chart for deploying typicode/json-server
+type: application
+version: 0.1.0
+appVersion: "0.17.0"

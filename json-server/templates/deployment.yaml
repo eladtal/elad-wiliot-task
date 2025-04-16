@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: json-server
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: json-server
+  template:
+    metadata:
+      labels:
+        app: json-server
+    spec:
+      containers:
+        - name: json-server
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args: ["--watch", "/data/db.json"]
+          volumeMounts:
+            - name: db-volume
+              mountPath: /data
+      volumes:
+        - name: db-volume
+          configMap:
+            name: json-server-db

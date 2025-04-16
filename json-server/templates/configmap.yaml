@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: json-server-db
+data:
+  db.json: |-
+    {
+      "users": [
+        { "id": 1, "name": "Elad", "email": "elad@example.com" },
+        { "id": 2, "name": "Yoav", "email": "yoav@example.com" }
+      ]
+    }

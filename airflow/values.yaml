@@ -1,0 +1,34 @@
+webserver:
+  enabled: true
+  service:
+    type: LoadBalancer
+  defaultUser:
+    enabled: true
+    existingSecret: airflow-web-user
+    usernameSecretKey: username
+    passwordSecretKey: password
+
+dags:
+  persistence:
+    enabled: false
+
+logs:
+  persistence:
+    enabled: false
+    storageClassName: gp3
+
+postgresql:
+  enabled: true
+  auth:
+    existingSecret: airflow-postgresql
+    usernameKey: username
+    passwordKey: password
+    database: airflow
+  primary:
+    persistence:
+      storageClass: gp3
+
+redis:
+  persistence:
+    enabled: true
+    storageClassName: gp3
