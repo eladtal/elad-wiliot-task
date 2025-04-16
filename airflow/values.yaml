@@ -35,3 +35,13 @@ redis:
   persistence:
     enabled: true
     storageClassName: gp3
+
+scheduler:
+  extraEnvFrom:
+    - secretRef:
+        name: airflow-rds-secret
+
+workers:
+  extraEnvFrom:
+    - secretRef:
+        name: airflow-rds-secret
